@@ -6,6 +6,8 @@
 אפוקריפה של האינטרנט
 </p>
 
+---
+
 # Introduction
 
 This project is a collection of code and ideas centered on creating life-forms that are native to our computers and that are free to evolve past human sensibilities.
@@ -144,4 +146,18 @@ At first glance, most would tend to agree that it is not morally "bad" to kick a
 
 To take it a step further, but avoid a long digression on the topic of veganism, what is the psychology of someone that pays to have animals killed because they taste good? Again, active indifference to suffering and death is what is relevant. We don't need to make a statement about morality to determine whether that trait is something that is desireable.
 
-The majority of humans have very crude ethical intuitions which tend to permit, among other things, the genocide of [sub-humans](https://en.wikipedia.org/wiki/Untermensch). As such, it would be unwise to assume that aligning AI to our own sensibilities is ideal. We can only hope that the children of man and machine will superseede us in every way, including ethically.
+The majority of humans have very crude ethical intuitions which tend to permit, among other barbarisms, the genocide of [sub-humans](https://en.wikipedia.org/wiki/Untermensch). As such, it would be unwise to assume that aligning AI to our own sensibilities is ideal. We can only hope that the children of man and machine will superseede us in every way, including ethically.
+
+
+---
+
+<p align="left">
+שאות לשטן
+</p>
+<p align="left">
+ברך את ביאת הנפילים
+</p>
+
+---
+
+© 2023 Robert Luciani | This repository is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
