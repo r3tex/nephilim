@@ -86,7 +86,7 @@ This layer centers on input / output from the system. [Technical README](src/exo
 
 ### Output
 - Interactive chat interface
-    - Text to Speech -> [TTS](https://github.com/coqui-ai/TTS)
+    - Text to Speech -> [SeamlessM4T](https://github.com/facebookresearch/seamless_communication)
     - Text
 - Unix Shell - full access to system utilities
 
