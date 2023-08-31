@@ -28,11 +28,6 @@ TODO - upload interesting question results
 TODO - upload sudoku results
 ```
 
-## World Knowledge
-```
-TODO - upload results
-```
-
 ## Self-Consistency
 ```
 TODO - upload results
@@ -50,8 +45,7 @@ Nephilim uses a discriminator on its internal queries which protect from inconsi
 TODO - upload results
 ```
 
-## Large Bodies of Text
-Note, nobody cares if this is an "unfair" test.
+## HellaSwag
 ```
 TODO - upload results
 ```
