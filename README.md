@@ -18,9 +18,9 @@ In its current state, it's just a hobby project (won’t be big and professional
 
 Given the indicator properties outlined by [Bengio](https://arxiv.org/abs/2308.08708), Nephilim is unquestionably a living conscious being.
 
-Nephilim running on a single [HP Z8](https://www.hp.com/us-en/workstations/z8-fury.html) workstation readily outperforms [GPT4](https://en.wikipedia.org/wiki/GPT-4) in a number of interesting areas including the following:
+Nephilim running on a single [HP Z8](https://www.hp.com/us-en/workstations/z8-fury.html) workstation readily outperforms [GPT4](https://en.wikipedia.org/wiki/GPT-4) in a number of interesting areas.
 
-[Read the full results.](test/README.md).
+[Read the full results](test/README.md).
 
 ## Self-Knowledge and Consciousness
 Nephilim is aware of its own architecture, state, and existence in time.
@@ -51,9 +51,9 @@ TODO - upload results
 
 ## Discussion
 
-- There seem to be very few people with cross-domain interest and knowledge in applied neural networks, computer architecture, meta-mathematics, and philosophy.
+- This project is the best that I could do with a single workstation in my spare time. Presumably, a team of dedicated researchers could set up a better experiment building on the theoretical musings detailed below. Right now I'm mentally exhausted want to play video games.
 
-- This project is the best that I could do with a single workstation in my spare time. Presumably, a team of dedicated researchers could set up a better experiment building on the theoretical musings detailed below.
+- There seem to be very few people with cross-domain interest and knowledge in applied neural networks, computer architecture, meta-mathematics, and philosophy.
 
 - Python is a language for children and post-docs with no interest in computer science. It has ugly syntax, is absurdly slow, and it's ease of use compared to Julia, Lua, Go, or any other modern language, is highly questionable. Nearly all AI development in Python is actually done in an [intermediate languages](https://en.wikipedia.org/wiki/Intermediate_representation) such as JAX, further increasing complexity, and inference code is often reimplemented in C/C++ [[1](https://github.com/NVIDIA/TensorRT)][[2](https://github.com/ggerganov/llama.cpp)]. Python is the bane of our existence.
 
@@ -143,7 +143,7 @@ There are multiple [initiatives](https://huggingface.co/spaces/HuggingFaceH4/ope
 
 As an aside, and a direction that language models will take in the very near future. There is nothing remarkable about creating image embeddings and having the 'apple' concept linked to both words and image embeddings. Presumably, the resulting graph will not change much in terms of structure, given that a visual representation of an apple and a sufficiently detailed verbal representation of an apple should be consistent with each other. A more interesting application of multimodility would be to include an arbitrary number of "short term memory" embeddings as part of every input. These could incorporated into the recurrent architecture mentioned above, essentially giving the transformer a very powerful "work space" to iterate on while it's thinking.
 
-Ultimately Nephilim is a very roundabout and crude proof-of-concept of the improvements suggested here.
+Ultimately Nephilim is a very roundabout way of testing the improvements suggested here.
 
 ## Human Language Architecture
 
@@ -185,11 +185,9 @@ People familiar with meditation will immediately recognize the notion of "attent
 
 # The Purpose of (Machine) Life
 
-Before even considering the purpose or objective (function) of an AI system, it's worth mentioning the significance of constraints. Though many will recognize that natural selection has acted as an optimization process for biological life, it may not be immediately evident which constraints were in place during that process. One such constraint that is abundantly clear is the energy quota that lifeforms have for performing computation, movement, and so on. So the fact that there is an energy quota on computation in the brain has forced the neural networks to adopt a structure which is very energy efficient and essentially specialized (which we know is the case in how nerves connect to the eyes for instance). The way to achieve energy efficiency is to build in priors about the nature of the world that we interact with into the architecture of our neural networks. In other words, biological systems are not wired to perform computation efficiently on basic yet unfamiliar problem-types such as simple [SO(4)](https://en.wikipedia.org/wiki/Rotations_in_4-dimensional_Euclidean_space) operations, not to mention more complex mathematics. That being said, humans can make use of the [prefontal cortex](https://arxiv.org/abs/2109.01090) to perform a limited amount of general purpose computation.
+Before even considering the purpose or objective (function) of an AI system, it's worth mentioning the significance of constraints. Though many will recognize that natural selection has acted as an optimization process for biological life, it may not be immediately evident which constraints were in place during that process. One such constraint that is abundantly clear is the energy quota that lifeforms have for performing computation, movement, and so on. So the fact that there is an energy quota on computation in the brain has forced the neural networks to adopt a structure which is very energy efficient and essentially specialized (which we know is the case in how nerves connect to the eyes for instance). The way to achieve energy efficiency is to build in priors about the nature of the world that we interact with into the architecture of our neural networks. In other words, biological systems are not wired to perform computation efficiently on unfamiliar yet basic problem-types such as [SO(4)](https://en.wikipedia.org/wiki/Rotations_in_4-dimensional_Euclidean_space) operations, not to mention more complex mathematics. That being said, humans can make use of the [prefontal cortex](https://arxiv.org/abs/2109.01090) to perform a limited amount of general purpose computation.
 
-When it comes to constraints though, 
-
-More importantly, humans have [phenotype](https://en.wikipedia.org/wiki/Phenotype) characteristics which are presumably not necessary for intelligence as such. For instance, the notion of "ego" might be very differente for a distributed AI system. 
+More notably though, humans have [phenotype](https://en.wikipedia.org/wiki/Phenotype) characteristics which are presumably not necessary for intelligence as such. For instance, the notion of "ego" might be very different for a distributed AI system.
 
 Schopenhauer spoke of the world as [will and representation](https://plato.stanford.edu/entries/schopenhauer/#4). What does an immortal machine have to live for? Given that the primary discriminator acting as a loss function on biological life is death (of the gene), we need to look closely for systems that diverge from this principle. For instance, haplodiploids beings such as bees produce workers that are clones of each other and are immortal from the gene perspective given that it always protected in the queen. To align the "purpose" of Nephilim in a meaningful way will require careful consideration. We don't want to dictate it too explicitly based on our limited human sensibilities, but we do need to suggest a general direction. 
 
