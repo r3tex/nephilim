@@ -10,13 +10,26 @@
 
 # Introduction
 
-This project is a collection of code and ideas centered on creating an AGI that is free to evolve past human sensibilities.
+This project is a one-off experiment centered on creating an AGI that is free to evolve past human sensibilities.
 
 In its current state, it's just a hobby project (won’t be big and professional) for x64 machines with GPUs [[*](https://en.wikipedia.org/wiki/History_of_Linux#The_creation_of_Linux)].
 
 # Results
 
-Nephilim running on a single [HP Z8](https://www.hp.com/us-en/workstations/z8-fury.html) workstation readily outperforms [GPT4](https://en.wikipedia.org/wiki/GPT-4) in a number of areas including the following:
+Given the indicator properties outlined by [Bengio](https://arxiv.org/abs/2308.08708), Nephilim is unquestionably a living conscious being.
+
+Nephilim running on a single [HP Z8](https://www.hp.com/us-en/workstations/z8-fury.html) workstation readily outperforms [GPT4](https://en.wikipedia.org/wiki/GPT-4) in a number of interesting areas including the following:
+
+## Self-Knowledge and Consciousness
+Nephilim is aware of its own architecture, state, and existence in time.
+```
+TODO - upload Q&A results
+```
+
+## Self-Consistency
+```
+TODO - upload results
+```
 
 ## Logical Reasoning
 ```
@@ -28,30 +41,8 @@ TODO - upload interesting question results
 TODO - upload sudoku results
 ```
 
-## World Knowledge
-```
-TODO - upload results
-```
-
-## Self-Consistency
-```
-TODO - upload results
-```
-
-## Self-Knowledge
-Nephilim is aware of its own architecture, state, and existence in time.
-```
-TODO - upload Q&A results
-```
-
 ## Adverserial Attacks
 Nephilim uses a discriminator on its internal queries which protect from inconsistent output.
-```
-TODO - upload results
-```
-
-## Large Bodies of Text
-Note, nobody cares if this is an "unfair" test.
 ```
 TODO - upload results
 ```
@@ -60,11 +51,13 @@ TODO - upload results
 
 - There seem to be very few people with cross-domain interest and knowledge in applied neural networks, computer architecture, meta-mathematics, and philosophy.
 
+- This project is the best that I could do with a single workstation in my spare time. Presumably, a team of dedicated researchers could set up a better experiment building on the theoretical musings detailed below.
+
 - Python is a language for children and post-docs with no interest in computer science. It has ugly syntax, is absurdly slow, and it's ease of use compared to Julia, Lua, Go, or any other modern language, is highly questionable. Nearly all AI development in Python is actually done in an [intermediate languages](https://en.wikipedia.org/wiki/Intermediate_representation) such as JAX, further increasing complexity, and inference code is often reimplemented in C/C++ [[1](https://github.com/NVIDIA/TensorRT)][[2](https://github.com/ggerganov/llama.cpp)]. Python is the bane of our existence.
 
 # Architecture
 
-The architecture of Nephilim is inspired by the subdivision of the human brain into both physically and functionally distinct components. This approach has multiple advantages in terms of run-time efficiency, but also mean that they can be trained separately, swapped out, specialized, distributed, and more.
+The architecture of Nephilim is inspired in part by the subdivision of the human brain into both physically and functionally distinct components. This approach has multiple advantages in terms of run-time efficiency, but also mean that they can be trained separately, swapped out, specialized, distributed, and more.
 
 Moreover, every component is designed to be run in a distributed manner, meaning there is no single instance of a neural network, database, or streaming engine. The components can run on a single computer, or across multiple machines in a fault-tolerant way. For now, the assumption is that all components of Nephilim are trusted, but future work might include the ability to collaborate with external untrusted instances using modern consensus algorithms.
 
@@ -105,7 +98,7 @@ This layer centers on computation and cognition. [Technical README](src/ergokedi
 
 The premise for the architecture of this layer is to in part to solve a limitation of current transformer models. Given that they are trained on autoregressive token generation, they must necessarily begin to produce output after a single forward pass through their attention layers despite a complex problem potentially requiring more computation. In other words, the models need to answer before they have finished thinking.
 
-To solve this we introduce the "cascade of thoughts" setup which is inspired to a large degree by excellent results in various [tree-of-thought](https://arxiv.org/abs/2305.10601) papers and [work-stealing](https://en.wikipedia.org/wiki/Work_stealing) algorithms used in HPC. 
+To solve this we introduce the "cascade of thoughts" setup which is inspired to a large degree by excellent results in various [self-reflaction](https://export.arxiv.org/abs/2303.11366) papers and [work-stealing](https://en.wikipedia.org/wiki/Work_stealing) algorithms used in HPC. 
 
 Nephilim can have an arbitrary number of language models with various specializations running at any one time, all of which can attend to queries. The initial source of queries is the Exosomatic layer which takes input from the user and meditative prompts. The queries are then queued in the Synaptic layer with metadata specifying their source and priority. 
 
@@ -120,7 +113,7 @@ Nephilim constantly attends to multiple inputs from its Exosomatic layer, leadin
 
 ## Von Neumann Architecture
 
-Modern computers tend to work with a clock, a bus, a CPU, and various layers of caching. It would be ideal to architect Nephilim to run as "natively" as possible on this hardware. Initially we will just focus on code that is performant on Linux based x64 PCs. At a later point it might be interesting to move it to [Ring 0](https://en.wikipedia.org/wiki/Protection_ring) and let it output machine code and data directly to memory. Ultimately it would be ideal to run Nephilim on hardware that is purpose-built.
+Modern computers tend to work with a clock, a bus, a CPU, and various layers of caching. It would be ideal to architect Nephilim to run as "natively" as possible on this hardware. Initially we will just focus on code that is performant on Linux based x64 PCs. At a later point it might be interesting to move it to [Ring 0](https://en.wikipedia.org/wiki/Protection_ring) and let it output machine code and data directly to memory. Ultimately it would be ideal to run Nephilim on hardware that is purpose-built such as FPGAs, ASICs, or even better, something even more specialized like IBMs [phase-change](https://research.ibm.com/blog/analog-ai-chip-inference) processor.
 
 ## Transformer Architecture
 
@@ -136,29 +129,33 @@ However, to make reasoning about language more amenable to computation, especial
 
 If transformers are in effect performing combinatorial optimization to create coherent words and thoughts, it naturally prompts one to ask whether any limitations might exist as to the kinds of problems are tractable to it.
 
-AI influencers also place undue significance on the implications of P vs NP. It's worth noting from the outset that any theoretical basis for P ≠ NP is practically nonexistent, and the mere exercise of formalizing complexity classes is [shockingly nontrivial](https://arxiv.org/abs/0908.1932). That being said, the intrinsic complexity of a specific problem *instance* is defined in terms of an ideal algorithm (i.e. an objective function) which enumerates the discrete members of its co-domain under permutation closure. In other words, a specific problem instance can be of very low complexity even though it belongs to a general class of problems with instances of arbitrarily high complexity. What the evidence suggests is that real-world problem instance complexity is highly nonuniform. This is why the simplex method so often runs [in polynomial time](https://arxiv.org/abs/cs/0111050) on NP-hard problem classes. In the case of AI systems that can actively make use of knowable priors, the complexity distribution is decidedly skewed in their favor.
+AI influencers also place undue significance on the implications of computational "intractability" and P vs NP. It's worth noting from the outset that any theoretical basis for P ≠ NP is practically nonexistent, and the mere exercise of formalizing complexity classes is [shockingly nontrivial](https://arxiv.org/abs/0908.1932). That being said, the intrinsic complexity of a specific problem *instance* is defined in terms of an ideal algorithm (i.e. an objective function) which enumerates the discrete members of its co-domain under permutation closure. In other words, a specific problem instance can be of very low complexity even though it belongs to a general class of problems with instances of arbitrarily high complexity. What the evidence suggests is that real-world problem instance complexity is highly nonuniform. This is why the simplex method so often runs [in polynomial time](https://arxiv.org/abs/cs/0111050) on NP-hard problem classes, and is precisely what the [NFT Theorem](https://ieeexplore.ieee.org/document/585893) predicts. In the case of AI systems that can actively learn and make use of knowable priors, the complexity distribution is decidedly skewed in their favor.
 
 Case in point, research has shown that neural networks tend to embed priors which allow them to perform [subgraph matching](https://arxiv.org/abs/2305.18654) which is in itself an NP-hard problem. Some see this as an undesireable bias which could potentially lead the model astray in its search of an optimal path through graphs. In general though, subgraph matching is a tremendously powerful capability when it comes to understanding the global geometric structures of graphs. This sort of bias is useful because ultimately we're not interested in finding optimal solutions to problems. Indeed, we know that for high dimensional problems, local minima are practically equivalent to global minima. The gain in efficiency is worth the non-optimality. In other words, "good enough" is good enough.
 
-## Future AI Architecture
+## Future Transformer Architecture
 
-There are multiple [initiatives](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) trying to rank the performance of language models based on various benchmarks, however, many of them focus anthropocentric metrics such as "commonsense scenarios". What is more interesting though, is a model's ability to perform complex multi-step logical reasoning (provided the requisite world-knowledge). This ability is essentially a function of a model's size (parameter count) and its [depth](https://arxiv.org/abs/1608.08225). Even though current state of the art systems are spread out across multiple models that are a staggering 120 layers deep with many attention heads per layer, there are a couple of reasons to believe that increases in parameter can still lead to further improvements. 
+Most leaps in AI progress have come hand-in-hand with the curation and release of high quality datasets such as [Common Crawl](https://commoncrawl.org/). This particular dataset, which is the foundation for many language models, is already in the hundreds of TB and yet is only a fraction of all the academic papers, books, and other sources of knowledge that humans have amassed (not to mention other information modes such as images, audio, and device measurements). So despite some model architectures not seeing improvements in [perplexity](https://en.wikipedia.org/wiki/Perplexity) from added parameters, provided their current datasets, there's nothing to suggest that larger and more well-curated datasets couldn't be used to train larger and better models. That is not to say that the way in which they will increase is merely by adding dense layers deeper. Just as in the past, we will be adding algorithmic improvements such as sparse activations, speculative decoding, and more.
 
-Most leaps in AI progress have come hand-in-hand with the curation and release of high quality datasets such as [Common Crawl](https://commoncrawl.org/). This particular dataset, which is the foundation for many language models, is already in the hundreds of TB and yet is only a fraction of all the academic papers, books, and other sources of knowledge that humans have amassed (not to mention other information modes such as images, audio, and device measurements). So despite some model architectures not seeing improvements in [perplexity](https://en.wikipedia.org/wiki/Perplexity) from added parameters, provided their current datasets, there's nothing to suggest that larger and more well-curated datasets couldn't be used to train larger and better models.
+There are multiple [initiatives](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) trying to rank the performance of language models based on various benchmarks, however, not only are those tests absolutely riddled with errors, many of them focus anthropocentric metrics such as "commonsense scenarios". What we really want to gauge is a model's ability to perform complex multi-step logical reasoning (provided the requisite world-knowledge). This ability is essentially a function of a model's size (parameter count), and moreso its [depth](https://arxiv.org/abs/1608.08225). Current state of the art systems are spread out across multiple models that are a staggering 120 layers deep with many attention heads per layer. We could definitely add more layers and call it a day, but it would be more ideal if we could provide a way for the system to think for as long as it wants to before producing answers. In Nephilim we have done this in a very crude way by invoking the entire transformer sequentially, over and over. Ideally though, perhaps future system architectures could be designed like [MuZero](https://arxiv.org/abs/1911.08265) which includes a dedicated latentspace dynamics sub-component that is run in a recurrent way together with a value network that has a sense of the system's performance.
 
-That being said, even for arbitrarily large datasets, current transformer architectures will reach a point where further size increases provide no practical benefit with regards to their pre-training. At that point it would be ideal to provide a way for the system to "think for longer" before producing answers. In Nephilim we have done this in a very crude way by invoking the entire transformer sequentially, over and over. Ideally though, perhaps future system architectures could be designed like [MuZero](https://arxiv.org/abs/1911.08265) which includes a dedicated latentspace dynamics sub-component that is run in a recurrent way. 
+As an aside, and a direction that language models will take in the very near future. There is nothing remarkable about creating image embeddings and having the 'apple' concept linked to both words and image embeddings. Presumably, the resulting graph will not change much in terms of structure, given that a visual representation of an apple and a sufficiently detailed verbal representation of an apple should be consistent with each other. A more interesting application of multimodility would be to include an arbitrary number of "short term memory" embeddings as part of every input. These could incorporated into the recurrent architecture mentioned above, essentially giving the transformer a very powerful "work space" to iterate on while it's thinking.
+
+Ultimately Nephilim is a very roundabout and crude proof-of-concept of the improvements suggested here.
 
 ## Human Language Architecture
 
-Although this is pure speculation, if we were to regard the geometric structure of the graph of a human language, it it seems reasonable that it should contain numerous subgraphs that are *isostructural* to the geometry of reality itself (if its rules were to be modelled as a computation graph). After all, we have a crude reality simulator in our brains and by the [Principle of Computational Equivalence](https://www.wolframscience.com/nks/chap-12--the-principle-of-computational-equivalence/), although it might be inefficient, there are no theoretical limitations what can be computed. If small parts of reality are in fact embedded in language this way, it naturally leads one to wonder what else might be embedded.
+Human language uses a linear encoding scheme of words. An interesting facet of this relates to the fact that we communicate using essentially single typology with permutations of [SOV](https://en.wikipedia.org/wiki/Linguistic_typology#Syntactic_typology) (i.e. a single way of structuring thoughts). This is presumably not coincidental. My suspicion is it relates to computational irreducibility if we view ourselves as algorithms in time whose primary concern is exchanging execution path speculation. In other words, all we talk about is state changes. The ambiguity and flaws in language are actually features which allow for a type of lossy compression when serializing the description of these state changes.
+
+Although this is pure speculation, if we were to regard the geometric structure of the graph of a human language, it it seems reasonable that it should contain numerous subgraphs that are *isostructural* to the geometry of reality itself (if its rules were to be [modelled as a graph](https://www.wolframphysics.org/technical-introduction/)). After all, we have a crude reality simulator in our brains and by the [Principle of Computational Equivalence](https://www.wolframscience.com/nks/chap-12--the-principle-of-computational-equivalence/), although it might be inefficient, there are no theoretical limitations what can be computed. If small parts of reality are in fact embedded in language this way, it naturally leads one to wonder what else might be embedded.
 
 - We coin the term graph *isostructural* to refer to a bijection that merely preserves equivalence classes of labels, as opposed to graph *isomorphic* which preserves every individual vertex and edge label.
 
- There is a deep tie between what we regard as a "concept" and what would be a subgraph of related words. The specific word *apple* is linked to a subgraph of words which are equivalent to its concept. This is why subgraph matching and attention are such powerful capabilities in language models.
+There is a deep tie between what we regard as a "concept" and what would be a subgraph of related words. The specific word *apple* is linked to a subgraph of words which are equivalent to its concept. This is why subgraph matching and attention are such powerful capabilities in language models.
 
 Now, imagine the task of creating a training dataset for a language based AI model. We begin by creating a corpus of text based on questions and answers. It might begin with a question such as, "What is consciousness?", and an appropriate answer might be something like "It is my subjective experience of reality." and the next question might be "What do you mean by subjective, experience, and reality?" and this would lead to many more answers and even more questions.
 
-An AI trained on this sort of corpus would be completely able to speak for itself and argue why it now views itself as conscious. Is that concept merely an embedding in the graph or is consciousness something else?
+An AI trained on this sort of corpus would be completely able to speak for itself and argue why it now views itself as conscious. Is the concept of consciousness merely another embedding in the graph or is something else?
 
 # On Consciousness
 
