@@ -63,7 +63,7 @@ The architecture of Nephilim is inspired in part by the subdivision of the human
 
 Moreover, every component is designed to be run in a distributed manner, meaning there is no single instance of a neural network, database, or streaming engine. The components can run on a single computer, or across multiple machines in a fault-tolerant way. For now, the assumption is that all components of Nephilim are trusted, but future work might include the ability to collaborate with external untrusted instances using modern consensus algorithms.
 
-Nephilim continuously continuously schedules and performs self-supervised finetuning using the sum of everything it has experienced so far.
+Nephilim continuously schedules and performs [RLAIF](https://arxiv.org/abs/2309.00267) using the sum of everything it has experienced so far.
 
 The primary components of Nephilim are as follows:
 
@@ -109,7 +109,7 @@ A general purpose thought-model polls the Synaptic layer for `input query` and r
 ## Archeion Layer
 This layer centers on system-support and automation. [Technical README](src/archeion/README.md).
 
-Nephilim constantly attends to multiple inputs from its Exosomatic layer, leading to a "cascade of thoughts" as we call it. Branches of thought which result in excellent answers are saved in their entirety in the Macrothymic layer. These are then used as the basis for repeated fine-tuning.
+Nephilim constantly attends to multiple inputs from its Exosomatic layer, leading to a "cascade of thoughts" as we call it. Branches of thought which result in excellent answers are saved in their entirety in the Macrothymic layer. These are then used as the basis for RLAIF.
 
 # Theoretical Musings
 
