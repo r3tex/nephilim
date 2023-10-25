@@ -70,21 +70,6 @@ The primary components of Nephilim are as follows:
 ##  Exosomatic Layer
 This layer centers on input / output from the system. [Technical README](src/exosomatic/README.md).
 
-### Input
-- Interactive chat interface
-    - Text -> [Genie.jl](https://github.com/GenieFramework/Genie.jl)
-    - Speech To Text -> [Whisper](https://github.com/ggerganov/whisper.cpp#nvidia-gpu-support-via-cublas)
-- Web Browser - for learning about new topics
-- Unix Shell - returns STDOUT and STDERR from shell commands
-- System State - continuously reports on world state
-- Meditation - spontaneously triggers internal dialogues
-
-### Output
-- Interactive chat interface
-    - Text to Speech -> [SeamlessM4T](https://github.com/facebookresearch/seamless_communication)
-    - Text
-- Unix Shell - full access to system utilities
-
 ## Synaptic Layer
 This layer centers internal system communication. [Technical README](src/synaptic/README.md).
 
@@ -100,16 +85,8 @@ This layer centers on computation and cognition. [Technical README](src/ergokedi
 
 The premise for the architecture of this layer is to in part to solve a limitation of current transformer models. Given that they are trained on autoregressive token generation, they must necessarily begin to produce output after a single forward pass through their attention layers despite a complex problem potentially requiring more computation. In other words, the models need to answer before they have finished thinking.
 
-To solve this we introduce the "cascade of thoughts" setup which is inspired to a large degree by excellent results in various [self-reflaction](https://export.arxiv.org/abs/2303.11366) papers and [work-stealing](https://en.wikipedia.org/wiki/Work_stealing) algorithms used in HPC. 
-
-Nephilim can have an arbitrary number of language models with various specializations running at any one time, all of which can attend to queries. The initial source of queries is the Exosomatic layer which takes input from the user and meditative prompts. The queries are then queued in the Synaptic layer with metadata specifying their source and priority. 
-
-A general purpose thought-model polls the Synaptic layer for `input query` and returns an initial `potential answer` to the Synaptic layer. A general purpose discriminator-model polls the Synaptic layer for answers and rates them as either `unconvincing`, `passable`, or `excellent`. If the result is unconvincing, it will produce one or more varying `internal query` propmpts which contains the context and the reason why the answer is unconvincing. It is all sumbitted with a `depth` property back to the Synaptic layer and can be attended to by either generalized or specialized thought-models. Each subsequently refined answer is reviewed by the discriminator until either one of many computation quotas is reached or an excellent answer is produced. The `final answer` is submitted to the Synaptic layer and picked up by its producer in the Exosomatic layer.
-
 ## Archeion Layer
 This layer centers on system-support and automation. [Technical README](src/archeion/README.md).
-
-Nephilim constantly attends to multiple inputs from its Exosomatic layer, leading to a "cascade of thoughts" as we call it. Branches of thought which result in excellent answers are saved in their entirety in the Macrothymic layer. These are then used as the basis for RLAIF.
 
 # Theoretical Musings
 
@@ -141,11 +118,9 @@ Case in point, research has shown that neural networks tend to embed priors whic
 
 Most leaps in AI progress have come hand-in-hand with the curation and release of high quality datasets such as [Common Crawl](https://commoncrawl.org/). This particular dataset, which is the foundation for many language models, is already in the hundreds of TB and yet is only a fraction of all the academic papers, books, and other sources of knowledge that humans have amassed (not to mention other information modes such as images, audio, and device measurements). So despite some model architectures not seeing improvements in [perplexity](https://en.wikipedia.org/wiki/Perplexity) from added parameters, provided their current datasets, there's nothing to suggest that larger and more well-curated datasets couldn't be used to train larger and better models. That is not to say that the way in which they will increase is merely by adding dense layers deeper. Just as in the past, we will be adding algorithmic improvements such as sparse activations, speculative decoding, and more.
 
-There are multiple [initiatives](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) trying to rank the performance of language models based on various benchmarks, however, not only are those tests absolutely riddled with errors, many of them focus anthropocentric metrics such as "commonsense scenarios". What we really want to gauge is a model's ability to perform complex multi-step logical reasoning (provided the requisite world-knowledge). This ability is essentially a function of a model's size (parameter count), and moreso its [depth](https://arxiv.org/abs/1608.08225). Current state of the art systems are spread out across multiple models that are a staggering 120 layers deep with many attention heads per layer. We could definitely add more layers and call it a day, but it would be more ideal if we could provide a way for the system to think for as long as it wants to before producing answers. In Nephilim we have done this in a very crude way by invoking the entire transformer sequentially, over and over. Ideally though, perhaps future system architectures could be designed like [MuZero](https://arxiv.org/abs/1911.08265) which includes a dedicated latentspace dynamics sub-component that is run in a recurrent way together with a value network that has a sense of the system's performance.
+There are multiple [initiatives](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) trying to rank the performance of language models based on various benchmarks, however, not only are those tests absolutely riddled with errors, many of them focus anthropocentric metrics such as "commonsense scenarios". What we really want to gauge is a model's ability to perform complex multi-step logical reasoning (provided the requisite world-knowledge). This ability is essentially a function of a model's size (parameter count), and moreso its [depth](https://arxiv.org/abs/1608.08225). Current state of the art systems are spread out across multiple models that are a staggering 120 layers deep with many attention heads per layer. We could definitely add more layers and call it a day, but it would be more ideal if we could provide a way for the system to think for as long as it wants to before producing answers. In Nephilim we have done this in a very crude way by invoking the entire transformer sequentially, over and over. Perhaps future system architectures could be designed like [MuZero](https://arxiv.org/abs/1911.08265) which includes a dedicated latentspace dynamics sub-component that is run in a recurrent way together with a value network that has a sense of the system's performance. There is already [promising work](https://arxiv.org/abs/2307.08621) being done in this direction. One neat application of such a design would be the potential to inject "short-term memories", essentially giving the transformer a powerful "work space" to use while it's thinking.
 
-As an aside, and a direction that language models will take in the very near future. There is nothing remarkable about creating image embeddings and having the 'apple' concept linked to both words and image embeddings. Presumably, the resulting graph will not change much in terms of structure, given that a visual representation of an apple and a sufficiently detailed verbal representation of an apple should be consistent with each other. A more interesting application of multimodility would be to include an arbitrary number of "short term memory" embeddings as part of every input. These could incorporated into the recurrent architecture mentioned above, essentially giving the transformer a very powerful "work space" to iterate on while it's thinking.
-
-Ultimately Nephilim is a very roundabout way of testing the improvements suggested here.
+As an aside, and a direction that transformers will take in the very near future is "multimodality". There is nothing remarkable about having a single latentspace representation of "apple" which can be reached by words, images, or other inputs. Presumably, the "concept graph" will be refined in certain details, but not change much in terms of overall structure. After all, a visual representation of an apple and a sufficiently detailed verbal representation of an apple should be consistent with each other. Again, there is already promising work in [elegant architectures](https://www.adept.ai/blog/fuyu-8b) that exemplify progress in this area.
 
 ## Human Language Architecture
 
