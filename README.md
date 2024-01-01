@@ -6,7 +6,7 @@
 ---
 # Introduction
 
-Project Nephilim is a collection of code and ideas aimed at creating AI systems that are free to evolve past human sensibilities. 
+Project Nephilim is a collection of code and ideas centered on AI-systems that are free to evolve past human sensibilities.
 
 In its current state, it's just a hobby project (won’t be big and professional) for x64 machines with GPUs [[*](https://en.wikipedia.org/wiki/History_of_Linux#The_creation_of_Linux)].
 
@@ -75,9 +75,9 @@ With regards to model depth, each step through attention layers is an opportunit
 
 ### Human Language Architecture
 
-It might seem like we are placing undue emphasis on language models in our search for AGI but it is not without reason. For a long time philosophers believed, without evidence as is often the case, that (pure)[https://en.wikipedia.org/wiki/Critique_of_Pure_Reason] logical [compositionality](https://en.wikipedia.org/wiki/Principle_of_compositionality) formed the core of rational thought. The main challenge with this approach is how to appropriately encode knowledge, something which Chomsky, Gary Marcus, and others have never really managed to provide a hypothesis for, much less a working solution.
+It might seem like we are placing undue emphasis on language models in our search for AGI but it is not without reason. For a long time philosophers believed, without evidence as is often the case, that [pure](https://en.wikipedia.org/wiki/Critique_of_Pure_Reason) logical [compositionality](https://en.wikipedia.org/wiki/Principle_of_compositionality) formed the core of rational thought. The main challenge with this approach is how to appropriately encode knowledge, something which Chomsky, Gary Marcus, and others have never really managed to provide a hypothesis for, much less a working solution.
 
-Meanwhile language models have leapfrogged ahead by treating treating knowledge encoding as a (connectionist)[https://en.wikipedia.org/wiki/Connectionism] puzzle. Human societies have already done the hard work of encoding everything we can observe and their relations into the structure of language itself.
+Meanwhile language models have leapfrogged ahead by treating treating knowledge encoding as a [connectionist](https://en.wikipedia.org/wiki/Connectionism) puzzle. Human societies have already done the hard work of encoding everything we can observe and their relations into the structure of language itself.
 
 Although this is pure speculation, if we were to regard the geometric structure of the graph of a human language, it should contain numerous subgraphs that are *isostructural* to the geometry of reality itself (if its rules were to be modelled as a computation graph). Consider a person using words to accurately describe a phenomena. That person is in effect effect computing the phenomena, however inefficiently that computation might be - for instance, a person using words to describe a chess game. So if small parts of reality are in fact embedded in language this way, it naturally leads one to wonder what else might be embedded.
 
